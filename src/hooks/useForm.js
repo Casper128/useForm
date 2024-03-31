@@ -1,21 +1,21 @@
 import { useEffect, useMemo, useState } from 'react';
 
 export const useForm = (defaultValues = {}) => {
-    const [formState, setFormState] = useState(defaultValues);
+    const [formState, setFormState] = useState();
     const [formErrors, setFormErrors] = useState({});
 
-    useEffect(() => {
-        setFormState(defaultValues);
-    }, [defaultValues])
+    // useEffect(() => {
+    //     setFormState(defaultValues);
+    // }, [defaultValues])
 
     const registerField = (name, validations = {}) => {
         // Aqui deseo registar el campo usando el name que se envia a 
         // la funcion sin usar deafult value si no unicamente el name
         // y asi hacer algo como esto sin que genere un bucle infinito 
-        // setFormState({
-        //     ...formState,
-        //     [name]: ''
-        // });
+        setFormState({
+            ...formState,
+            [name]: ''
+        });
 
         const onChange = ({ target }) => {
             const { name, value } = target;

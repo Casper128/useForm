@@ -1,13 +1,13 @@
 import { useForm } from '../../hooks';
 import './form.css'
 
-const defaultValues = { firstName: '' } //no deseo usar esto para inicializar mi formulario
+// const defaultValues = { firstName: '' } //no deseo usar esto para inicializar mi formulario
 export const Form = () => {
     const {
         formErrors,
         registerField,
         handleSubmit,
-    } = useForm(defaultValues);
+    } = useForm();
 
     const formSubmit = (data) => {
         console.log("Form Data:", data);
